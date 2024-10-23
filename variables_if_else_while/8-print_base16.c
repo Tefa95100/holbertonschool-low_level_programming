@@ -13,7 +13,7 @@ int main(void)
 	{
 		if (i <= 57)
 			putchar(i);
-		else if (i <= 70 && i >= 65)
+		else if (i <= 102 && i >= 97)
 			putchar(i);
 		i++;
 	}
