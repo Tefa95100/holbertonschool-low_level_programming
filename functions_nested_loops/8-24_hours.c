@@ -18,9 +18,7 @@ void jack_bauer(void)
 			{
 				for (d = 0; d <= 9; d++)
 				{
-					if (a == 2 && b == 4)
-						break;
-					else
+					if (a != 2 || b != 4)
 					{
 						_putchar(a + '0');
 						_putchar(b + '0');
@@ -29,8 +27,16 @@ void jack_bauer(void)
 						_putchar(d + '0');
 						_putchar('\n');
 					}
+					else
+						break;
 				}
+				if (a == 2 && b == 4)
+					break;
 			}
+			if (a == 2 && b == 4)
+				break;
 		}
+		if (a == 2 && b == 4)
+			break;
 	}
 }
