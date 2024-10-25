@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 
 /**
  *_islower - Says if it's a lowercase or uppercase
