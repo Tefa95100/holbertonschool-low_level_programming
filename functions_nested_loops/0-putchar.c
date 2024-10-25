@@ -1,7 +1,5 @@
-#include <stdio.h>
 #include "main.h"
 
-int _putchar(char);
 /**
  *main - Entry point of programm
  *Return: return 0
