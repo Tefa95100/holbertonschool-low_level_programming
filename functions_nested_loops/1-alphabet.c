@@ -9,7 +9,7 @@ int main (void)
 	char alphabet[27] = "abcdefghijklmnopqrstuvwxyz\n";
 	int i;
 	
-	print alphabet()
+	print_alphabet()
 	{
 		for(i = 0; alphabet[i] != '\0'; i++)
 		{
