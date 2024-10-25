@@ -11,7 +11,7 @@ int main (void)
 
 		for(i = 0; alphabet[i] != '\0'; i++)
 		{
-			putchar(alphabet[i]);
+			_putchar(alphabet[i]);
 		}
 	return (0);
 }
