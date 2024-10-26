@@ -18,13 +18,13 @@ void print_to_98(int n)
 	if (n <= 98)
 		for (; n <= 98; n++)
 		{
-			if (n < -100)
+			if (n <= -100)
 			{
 				print_3_digit(n);
 				_putchar(',');
 				_putchar(' ');
 			}
-			else if ((n >= -100 && n < -9) || (n > 9 && n < 98))
+			else if ((n > -100 && n < -9) || (n > 9 && n < 98))
 			{
 				print_2_digit(n);
 				_putchar(',');
