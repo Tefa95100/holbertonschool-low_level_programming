@@ -22,7 +22,6 @@ void times_table(void)
 			}
 			else if (b > 0)
 				_putchar(' ');
-			
 			affichage = prod % 10;
 			_putchar(affichage + '0');
 			if (b < 9)
