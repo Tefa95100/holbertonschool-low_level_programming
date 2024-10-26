@@ -22,6 +22,8 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
+				else
+					putchar('\n');
 			}
 
 		}
