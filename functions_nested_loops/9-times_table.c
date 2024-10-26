@@ -20,6 +20,8 @@ void times_table(void)
 				affichage = prod / 10;
 				_putchar(affichage + '0');
 			}
+			else if (b > 0)
+				_putchar(' ');
 			
 			affichage = prod % 10;
 			_putchar(affichage + '0');
