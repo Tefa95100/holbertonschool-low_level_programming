@@ -5,9 +5,6 @@
  *Return: return 0
  */
 
-/*declaration of prototype*/
-void print_digit(int a, int b, int c);
-
 int main(void)
 {
 	int a;
@@ -29,9 +26,9 @@ int main(void)
 
 /**
  *print_digit - print digit if is different and not print in the same sequence
- *@a: first digit
- *@b: second digit
- *@c: thirst digit
+ *@a: hundred digit
+ *@b: tens digit
+ *@c: unit digit
  */
 void print_digit(int a, int b, int c)
 {
