@@ -4,6 +4,10 @@
  *main - Entry point of programm
  *Return: return 0
  */
+
+/*declaration of prototype*/
+void print_digit(int a, int b, int c);
+
 int main(void)
 {
 	int a;
@@ -16,24 +20,35 @@ int main(void)
 		{
 			for (c = 0; c <= 9; c++)
 			{
-				if (a != b && a < b)
-				{
-					if (b != c && b < c)
-					{
-						putchar(a + '0');
-						putchar(b + '0');
-						putchar (c + '0');
-						if (a != 7 || b != 8 || c != 9)
-						{
-							putchar(',');
-							putchar(' ');
-						}
-						else
-							putchar('\n');
-					}
-				}
+				print_digit(a, b, c);
 			}
 		}
 	}
 	return (0);
+}
+
+/**
+ *print_digit - print digit if is different and not print in the same sequence
+ *@a: first digit
+ *@b: second digit
+ *@c: thirst digit
+ */
+void print_digit(int a, int b, int c)
+{
+	if (a != b && a < b)
+	{
+		if (b != c && b < c)
+		{
+			putchar(a + '0');
+			putchar(b + '0');
+			putchar (c + '0');
+			if (a != 7 || b != 8 || c != 9)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			else
+				putchar('\n');
+		}
+	}
 }
