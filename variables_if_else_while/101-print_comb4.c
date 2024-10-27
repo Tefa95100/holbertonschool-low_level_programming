@@ -4,6 +4,8 @@
  *main - Entry point of programm
  *Return: return 0
  */
+/* Declaration of prototype */
+void print_digit(int a, int b, int c);
 
 int main(void)
 {
