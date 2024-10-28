@@ -5,7 +5,7 @@
  *@n: The numbers of time to print
  *Return: nothing
  */
-void print_line(int n)
+void print_diagonal(int n)
 {
 	int count;
 
