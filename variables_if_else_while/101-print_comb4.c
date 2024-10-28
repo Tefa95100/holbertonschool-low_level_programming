@@ -1,11 +1,9 @@
 #include <stdio.h>
 
 /**
- *main - Entry point of programm
- *Return: return 0
+ * main - Entry point of programm
+ * Return: return 0
  */
-/* Declaration of prototype */
-void print_digit(int a, int b, int c);
 
 int main(void)
 {
@@ -27,10 +25,10 @@ int main(void)
 }
 
 /**
- *print_digit - print digit if is different and not print in the same sequence
- *@a: hundred digit
- *@b: tens digit
- *@c: unit digit
+ * print_digit - print digit if is different and not print in the same sequence
+ * @a: hundred digit
+ * @b: tens digit
+ * @c: unit digit
  */
 void print_digit(int a, int b, int c)
 {
