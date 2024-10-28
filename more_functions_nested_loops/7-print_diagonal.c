@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *print_line - print \ an 'n' times
+ *print_diagonal - print \ an 'n' times
  *@n: The numbers of time to print
  *Return: nothing
  */
@@ -21,6 +21,7 @@ void print_diagonal(int n)
 			_putchar('\\');
 			_putchar('\n');
 		}
+		_putchar('\n');
 	}
 	_putchar('\n');
 }
