@@ -5,6 +5,9 @@
  * Return: return 0
  */
 
+/* Declaration prototype */
+void print_digit(int a, int b, int c);
+
 int main(void)
 {
 	int a;
