@@ -2,6 +2,9 @@
 
 /**
  * main - Entry point of programm
+ * @a: hundred digit
+ * @b: tens digit
+ * @c: unit digit
  * Return: return 0
  */
 
