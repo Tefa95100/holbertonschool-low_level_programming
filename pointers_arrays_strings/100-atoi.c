@@ -18,7 +18,7 @@ int _atoi(char *s)
 		if (s[i] == '-')
 			neg++;	/*Recover number of negativ sign*/
 		if (s[i] >= '0' && s[i] <= '9')	/*Search number*/
-			number = (number * 10) + (s[i] - '0');	/*multiply number by 10 and add new digit*/
+			number = (number * 10) + (s[i] - '0');	/*mult num by 10 and add new digit*/
 		else if (number > 0)	/*Check if number is always to 0 if s[i] is a char*/
 			break;
 	}
