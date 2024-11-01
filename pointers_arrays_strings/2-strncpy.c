@@ -11,12 +11,14 @@ char *_strncpy(char *dest, char *src, int n)
 {
 	int i;
 	int dest_max;
-	int src_max
+	int src_max;
 
-	i_max = 0;
+	dest_max = 0;
 	while (dest[dest_max] != '\0')
-		i_max++;
-
+		dest_max++;
+	src_max = 0;
+	while (src[src_max] != '\0')
+		src_max++;
 	for (i = 0; i < n && n < dest_max; i++)
 	{
 		if (src[0] == '\0')
