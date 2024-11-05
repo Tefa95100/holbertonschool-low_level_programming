@@ -2,10 +2,10 @@
 #include <stddef.h>
 
 /**
- *
- *
- *
- *
+ * *_strstr - search a substring in the first string
+ *@haystack: String where search
+ *@needle: string for search
+ *Return: return ptr in start of identical
  */
 char *_strstr(char *haystack, char *needle)
 {
