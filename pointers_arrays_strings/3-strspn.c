@@ -10,19 +10,19 @@
 unsigned int _strspn(char *s, char *accept)
 {
 	int i;
-	unsigned int count;
+	unsigned int count = 0;
 
-	while (*s)
+	while (*s)	/*Browse string*/
 	{
-		for (i = 0; accept[i] != '\0'; i++)
+		for (i = 0; accept[i] != '\0'; i++) /*Browse accepted char*/
 		{
-			if (accept[i] == *s)
+			if (accept[i] == *s)	/*When s and accept is same increment and break*/
 			{
 				count++;
 				break;
 			}
 		}
-		if (accept[i] == '\0')
+		if (accept[i] == '\0')	/*if accept is finish break all loop*/
 			break;
 		s++;
 	}
