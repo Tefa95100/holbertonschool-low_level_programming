@@ -16,7 +16,13 @@ char *_strstr(char *haystack, char *needle)
 	char *substring;
 
 	while (needle[lenght] != '\0')	/*Search the lenght of needle*/
+	{
 		lenght++;
+	}
+	if (lenght < 1)
+	{
+		return (haystack);
+	}
 	while (haystack[i] != '\0')	/*Browse the string haystack*/
 	{
 		while (needle[j] != '\0')	/*Browse the string needle*/
