@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * 
- * 
- * 
+ * divided - Search with by divided if is prime number
+ *@n: number for search
+ *@div: divisor
+ *Return: return 1 if is prime number or 0 is not
  */
 int divided(int n, int div)
 {
@@ -18,6 +19,11 @@ int divided(int n, int div)
 	return (divided(n, div + 1));	/*Increment divided*/
 }
 
+/**
+ * is_prime_number - Search if is a prime number
+ *@n: number for search
+ * Return: return 1 if is prime number or 0 is not
+ */
 int is_prime_number(int n)
 {
 	if (n != 2 && n % 2 == 0)	/*Check if is not a even and not 2*/
