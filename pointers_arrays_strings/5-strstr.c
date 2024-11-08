@@ -34,7 +34,7 @@ char *_strstr(char *haystack, char *needle)
 			substring = &haystack[i - lenght + 1];
 			return (substring);
 		}
-		if (j == previous_count)
+		else if (j == previous_count)
 			j = 0;
 		else
 			previous_count = j;
