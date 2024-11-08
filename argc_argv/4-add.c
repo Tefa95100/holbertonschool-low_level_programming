@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	{
 		number = atoi(argv[i]);
 		sum = sum + number;
-		if (previous_sum == sum)
+		if (previous_sum == sum && number != 0)
 		{
 			printf("Error\n");
 			return (1);
