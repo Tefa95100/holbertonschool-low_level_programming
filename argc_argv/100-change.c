@@ -64,13 +64,13 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	if (argc > 2)	/*Control if receive 1 argument*/
+	if (argc != 2)	/*Control if receive 1 argument*/
 	{
 		printf("Error\n");
 		return (1);
 	}
 	money = atoi(argv[1]);
-	if (money < 1)	/*If argument receive is 0 nothing to return*/
+	if (money < 1)	/*If argument receive is 0 or less nothing to return*/
 	{
 		printf("0\n");
 	}
