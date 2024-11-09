@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 /**
- * 
- * 
- * 
- * 
- * 
+ * number_coin - Search number coin by cent
+ *@n: mount of money
+ *@multi: number of coin
+ *@cent: mount of cent
+ * Return: return the multi -1
  */
 int number_coin(int n, int multi, int cent)
 {
@@ -20,9 +20,9 @@ int number_coin(int n, int multi, int cent)
 	}
 }
 /**
- * 
- * 
- * 
+ * coin - count the number of coin
+ *@money: mount of money
+ *Return: the number of coins
  */
 int coin(int money)
 {
@@ -43,10 +43,10 @@ int coin(int money)
 	return (coin);
 }
 /**
- * 
- * 
- * 
- * 
+ * main- entry point
+ *@argc: number of argument
+ *@argv: stock argument
+ *Return: nothing
  */
 int main(int argc, char *argv[])
 {
@@ -68,6 +68,5 @@ int main(int argc, char *argv[])
 		piece = coin(money);
 		printf("%d\n", piece);
 	}
-	
 	return (0);
 }
