@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
  * number_coin - Search number coin by cent
@@ -10,13 +11,13 @@
  */
 int number_coin(int n, int multi, int cent)
 {
-	if (n - (multi * cent) < 0)
+	if (n - (multi * cent) < 0)	/*Search if multi * cent exceed money*/
 	{
-		return (multi - 1);
+		return (multi - 1);	/*Decrease multi before return*/
 	}
 	else
 	{
-		return (number_coin(n, multi + 1, cent));
+		return (number_coin(n, multi + 1, cent));	/*Increment multi*/
 	}
 }
 /**
@@ -33,11 +34,11 @@ int coin(int money)
 
 	for (i = 0; i < 5; i++)
 	{
-		coin = coin + number_coin(money, 1, cent[i]);
-		if (coin != previous_coin)
+		coin = coin + number_coin(money, 1, cent[i]);	/*Stock coin*/
+		if (coin != previous_coin)	/*Verify if coin is change*/
 		{
-			previous_coin = coin;
-			money = money - (coin * cent[i]);
+			previous_coin = coin;	/*Stock the new value of coin*/
+			money = money - (coin * cent[i]);	/*Decrease money*/
 		}
 	}
 	return (coin);
@@ -50,23 +51,32 @@ int coin(int money)
  */
 int main(int argc, char *argv[])
 {
-	int money;
-	int piece = 0;
+	int money, i, j;
 
-	if (argc > 2)
+	for (i = 1; i < argc; i++)
+	{
+		for (j = 0; argv[i][j] != '\0'; j++)
+		{
+			if (!isdigit(argv[i][j]))	/*Control if argument is digit*/
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+	}
+	if (argc > 2)	/*Control if receive 1 argument*/
 	{
 		printf("Error\n");
 		return (1);
 	}
 	money = atoi(argv[1]);
-	if (money < 1)
+	if (money < 1)	/*If argument receive is 0 nothing to return*/
 	{
 		printf("0\n");
 	}
 	else
 	{
-		piece = coin(money);
-		printf("%d\n", piece);
+		printf("%d\n", coin(money));	/*Print the number of coin*/
 	}
 	return (0);
 }
