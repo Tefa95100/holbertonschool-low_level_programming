@@ -36,11 +36,11 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
-	for ( k = 0; k < i; k++)	/*Concatane the 2 strings*/
+	for (k = 0; k < i; k++)	/*Concatane the 2 strings*/
 	{
 		conca[k] = s1[k];
 	}
-	for ( k = 0; k < j; k++)
+	for (k = 0; k < j; k++)
 	{
 		conca[k + i] = s2[k];
 	}
