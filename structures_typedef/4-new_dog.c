@@ -14,27 +14,27 @@ dog_t *new_dog(char *name, float age, char *owner)
 	int i = 0;
 	dog_t *dogy = malloc(sizeof(dog_t));
 
-	if (dogy == NULL)
+	if (dogy == NULL)	/*Check is dogy failled*/
 	{
 		return (NULL);
 	}
-	while (name[i] != '\0')
+	while (name[i] != '\0')	/*search lenght of name*/
 	{
 		i++;
 	}
-	dogy->name = malloc(i);
-	if (dogy->name == NULL)
+	dogy->name = malloc(i);	/*Reserved name*/
+	if (dogy->name == NULL)	/*Check is dogy name is null and free if NULL*/
 	{
 		free(dogy);
 		return (NULL);
 	}
-	dogy->name = name;
-	for (i = 0; owner[i] != '\0';)
+	dogy->name = name;	/*copy string*/
+	for (i = 0; owner[i] != '\0';)	/*search lenght of owner*/
 	{
 		i++;
 	}
-	dogy->owner = malloc(i);
-	if (dogy->owner == NULL)
+	dogy->owner = malloc(i);	/*Reserve dogy owner*/
+	if (dogy->owner == NULL)	/*Check is dogy owner is null and free if NULL*/
 	{
 		free(dogy->name);
 		free(dogy);
@@ -42,5 +42,5 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	dogy->owner = owner;
 	dogy->age = age;
-	return (dogy);
+	return (dogy);	/*return dogy*/
 }
