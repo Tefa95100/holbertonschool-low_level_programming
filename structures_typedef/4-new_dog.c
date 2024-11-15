@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * dogy - create new dog and save name and owner
+ * new_dog - create new dog and save name and owner
  *@name: name of dog
  *@age: age of dog
  *@owner: owner of dog
