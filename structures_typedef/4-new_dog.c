@@ -45,14 +45,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	dogy->name = malloc(_strlen(name));	/*Reserved name*/
+	dogy->name = malloc(_strlen(name) + 1);	/*Reserved name*/
 	if (dogy->name == NULL)	/*Check is dogy name is null and free if NULL*/
 	{
 		free(dogy);
 		return (NULL);
 	}
 	_strcpy(dogy->name, name);
-	dogy->owner = malloc(_strlen(owner));	/*Reserve dogy owner*/
+	dogy->owner = malloc(_strlen(owner) + 1);	/*Reserve dogy owner*/
 	if (dogy->owner == NULL)	/*Check is dogy owner is null and free if NULL*/
 	{
 		free(dogy->name);
