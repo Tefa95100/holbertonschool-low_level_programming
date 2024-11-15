@@ -11,6 +11,7 @@ char *_strdup(char *str)
 {
 	char *cpy_str;
 	int i = 0;
+	int j;
 
 	if (str[0] == '\0')
 	{
@@ -20,11 +21,10 @@ char *_strdup(char *str)
 	{
 		i++;
 	}
-	cpy_str = malloc(i);
-	while (i >= 0)
+	cpy_str = malloc(i + 1);
+	for (j = 0; j <= i; j++)
 	{
-		cpy_str[i] = str[i];
-		i--;
+		cpy_str[j] = str[j];
 	}
 	return (cpy_str);
 }
