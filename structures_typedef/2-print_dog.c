@@ -11,7 +11,8 @@
 void print_dog(struct dog *d)
 {
 	char empty = "(nil)";
-	if (d == NULL);
+
+	if (d == NULL)
 	{
 		return;
 	}
