@@ -10,6 +10,7 @@
  */
 void print_dog(struct dog *d)
 {
+	char empty = "(nil)";
 	if (d == NULL)
 	{
 		return;
@@ -18,7 +19,7 @@ void print_dog(struct dog *d)
 	{
 		if (d->name == NULL)
 		{
-			printf("Name: (nil)\n");
+			printf("Name: %d\n", empty);
 		}
 		else
 		{
@@ -27,7 +28,7 @@ void print_dog(struct dog *d)
 		printf("Age: %.6f", d->age);
 		if (d->owner == NULL)
 		{
-			printf("Owner: (nil)\n");
+			printf("Owner: %d\n", empty);
 		}
 		else
 		{
