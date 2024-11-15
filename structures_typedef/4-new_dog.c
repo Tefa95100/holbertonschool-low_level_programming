@@ -3,6 +3,34 @@
 #include <stdlib.h>
 
 /**
+ *_strlen - count the length of a string
+ *@s: counting string
+ *Return: lenght of string
+ */
+int _strlen(char *s)
+{
+	int lenght;
+
+	for (lenght = 0; *s != '\0'; lenght++)
+		s++;
+	return (lenght);
+}
+/**
+ * *_strcpy - copy a pointer
+ *@dest: pointer of for receive copy
+ *@src: pointer to copy
+ *Return: return the copy
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+
+	for (i = 0; src[i] != '\0'; i++)
+		dest[i] = src[i];
+	dest[i] = src[i];
+	return (dest);
+}
+/**
  * new_dog - create new dog and save name and owner
  *@name: name of dog
  *@age: age of dog
@@ -18,29 +46,21 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	while (name[i] != '\0')	/*search lenght of name*/
-	{
-		i++;
-	}
-	dogy->name = malloc(i);	/*Reserved name*/
+	dogy->name = malloc(_strlen(name));	/*Reserved name*/
 	if (dogy->name == NULL)	/*Check is dogy name is null and free if NULL*/
 	{
 		free(dogy);
 		return (NULL);
 	}
-	dogy->name = name;	/*copy string*/
-	for (i = 0; owner[i] != '\0';)	/*search lenght of owner*/
-	{
-		i++;
-	}
-	dogy->owner = malloc(i);	/*Reserve dogy owner*/
+	_strcpy(dogy->name, name)
+	dogy->owner = malloc(_strlen(owner));	/*Reserve dogy owner*/
 	if (dogy->owner == NULL)	/*Check is dogy owner is null and free if NULL*/
 	{
 		free(dogy->name);
 		free(dogy);
 		return (NULL);
 	}
-	dogy->owner = owner;
+	_strcpy(dogy->owner, owner);
 	dogy->age = age;
 	return (dogy);	/*return dogy*/
 }
