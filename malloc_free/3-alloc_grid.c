@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stddef.h>
 #include "main.h"
 
 /**
@@ -23,12 +22,12 @@ int **alloc_grid(int width, int height)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < height; i++)
+	for (i = 0; i < height; i++)	/*loops for malloc all line*/
 	{
-		int_array[i] = malloc(width * sizeof(int *));
-		if (int_array[i] == NULL)
+		int_array[i] = malloc(width * sizeof(int));
+		if (int_array[i] == NULL)	/*check if malloc success of fail*/
 		{
-			while (i >= 0)
+			while (i >= 0)	/*free all line if one fail*/
 			{
 				free(int_array[i]);
 				i--;
