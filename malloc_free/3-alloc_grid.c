@@ -19,13 +19,17 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 	int_array = malloc(height * sizeof(int *));	/*Create array*/
+	if (int_array == NULL)
+	{
+		return (NULL);
+	}
 	for (i = 0; i < height; i++)
 	{
 		int_array[i] = malloc(width * sizeof(int *));
-	}
-	if (int_array == NULL)	/*If failled return NULL*/
-	{
-		return (NULL);
+		if (int_array[i] == NULL)
+		{
+			return (NULL);
+		}
 	}
 	for (i = 0; i < height; i++)	/*Initialize array*/
 	{
