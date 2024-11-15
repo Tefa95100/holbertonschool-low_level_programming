@@ -39,7 +39,6 @@ char *_strcpy(char *dest, char *src)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int i = 0;
 	dog_t *dogy = malloc(sizeof(dog_t));
 
 	if (dogy == NULL)	/*Check is dogy failled*/
