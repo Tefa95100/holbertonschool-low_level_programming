@@ -52,7 +52,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dogy);
 		return (NULL);
 	}
-	_strcpy(dogy->name, name)
+	_strcpy(dogy->name, name);
 	dogy->owner = malloc(_strlen(owner));	/*Reserve dogy owner*/
 	if (dogy->owner == NULL)	/*Check is dogy owner is null and free if NULL*/
 	{
