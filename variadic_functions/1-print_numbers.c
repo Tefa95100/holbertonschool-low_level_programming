@@ -13,6 +13,11 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list nbr_print;
 	unsigned int i;
 
+	if (n == 0)
+	{
+		printf("Error");
+		exit(100);
+	}
 	va_start(nbr_print, n);	/*Initialize list*/
 	for (i = 0; i < n; i++)	/*Browse the list*/
 	{
