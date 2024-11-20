@@ -22,5 +22,9 @@ int (*get_op_func(char *s))(int, int)
 	{
 		i++;	/*Search the good op for use function*/
 	}
+	if (ops[i].op == NULL)
+	{
+		return (NULL);
+	}
 	return (ops[i].f);	/*return the good function*/
 }
