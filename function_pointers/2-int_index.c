@@ -15,12 +15,12 @@ int int_index(int *array, int size, int (*cmp)(int))
 	{
 		return (-1);
 	}
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size; i++)	/*Loop for browse the array*/
 	{
-		if (cmp(array[i]) != 0)
+		if (cmp(array[i]) != 0)	/*Cmp the number in array with the res of func*/
 		{
-			return (i);
+			return (i);	/*When identique return position in arrays*/
 		}
 	}
-	return (-1);
+	return (-1);	/*Return -1 if nothing is find*/
 }
