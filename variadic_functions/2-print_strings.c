@@ -20,7 +20,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	/*Browse the list*/
 	for (i = 0; i < n; i++)
 	{
+		/*Stock the current string in pointer of char*/
 		str = va_arg(str_prt, char *);
+		/*If pointer is NULL print nil*/
 		if (str == NULL)
 		{
 			printf("(nil)");
