@@ -24,11 +24,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			{
 				printf("%s", separator);	/*Print separator if is not NULL*/
 			}
-			else if (i == n - 1)
-			{
-				printf("\n");	/*Print new line at the ends*/
-			}
 		}
 		va_end(nbr_print);	/*Clean the list*/
 	}
+	printf("\n");
 }
