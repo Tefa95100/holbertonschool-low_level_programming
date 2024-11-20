@@ -11,15 +11,8 @@ int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
 
-	if (array == NULL)
-	{
-		return (-1);
-	}
-	if (cmp == NULL)
-	{
-		return (NULL);
-	}
-	if (size <= 0)	/*check size for 0 or less*/
+	/*check if cmp or array is NULL and if size <= to 0 and return -1*/
+	if ((size <= 0) || (cmp == NULL) || (array == NULL))
 	{
 		return (-1);
 	}
