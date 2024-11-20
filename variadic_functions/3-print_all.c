@@ -63,6 +63,7 @@ void print_all(const char * const format, ...)
 	/*index for browse*/
 	int i = 0;
 	int j;
+	char *sep = "";
 
 	/*Initialize list*/
 	va_start(arg_print, format);
@@ -76,10 +77,11 @@ void print_all(const char * const format, ...)
 			/*compare for search a correspondance if find print variable*/
 			if (format[i] == choose_func[j].type)
 			{
+				/*Print separator before print argument*/
+				printf("%s", sep);
 				choose_func[j].func(arg_print);
-				/*separator and break this loop*/
-				printf(", ");
-				break;
+				sep = ", ";	/*Initialize separot with ', '*/
+				break;	/*Break loop*/
 			}
 			j++;
 		}
