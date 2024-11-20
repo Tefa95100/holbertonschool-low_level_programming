@@ -20,7 +20,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		/*Print element of list*/
-		printf("%s", va_arg(str_prt, char));
+		printf("%s", va_arg(str_prt, char *));
 		if (i < n - 1 && separator != NULL)
 		{
 			printf("%s", separator);	/*Print separator if is not NULL*/
