@@ -9,7 +9,7 @@
  */
 typedef struct char_function
 {
-	char *type;
+	char type;
 	void (*func)(va_list argument);
 } select_function;
 
