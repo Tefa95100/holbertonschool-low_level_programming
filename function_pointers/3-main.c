@@ -26,11 +26,6 @@ int main(int argc, char *argv[])
 	}
 	first = atoi(argv[1]);
 	second = atoi(argv[3]);
-	if ((*op == '/' && second == 0) || (*op == '%' && second == 0))
-	{
-		printf("Error\n");	/*Check if the 2 nbr not 0 in division or modulo*/
-		exit(100);
-	}
 	printf("%d\n", get_op_func(argv[2])(first, second));	/*Print result*/
 	return (0);
 }
