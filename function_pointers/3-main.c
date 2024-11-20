@@ -24,6 +24,11 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
+	if (argv[2][1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
 	first = atoi(argv[1]);
 	second = atoi(argv[3]);
 	printf("%d\n", get_op_func(argv[2])(first, second));	/*Print result*/
