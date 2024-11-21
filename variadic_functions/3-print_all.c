@@ -38,11 +38,9 @@ void print_string(va_list arg_print)
 	if (string_print == NULL)
 	{
 		printf("(nil)");
+		return;
 	}
-	else
-	{
 		printf("%s", string_print);
-	}
 }
 /**
  * print_all - print all parameter receive
