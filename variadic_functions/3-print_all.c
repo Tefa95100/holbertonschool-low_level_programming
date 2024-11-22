@@ -66,7 +66,7 @@ void print_all(const char * const format, ...)
 	/*Initialize list*/
 	va_start(arg_print, format);
 	/*Browse format*/
-	while (format[i])
+	while (format != NULL && format[i])
 	{
 		j = 0;
 		/*browse array of function*/
