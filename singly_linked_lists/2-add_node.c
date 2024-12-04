@@ -24,9 +24,7 @@ int lenght_string(const char *str)
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *new_element;
-
-	new_element = malloc(sizeof(*new_element));
+	list_t *new_element = malloc(sizeof(*new_element));
 
 	if (new_element == NULL)
 	{
@@ -34,9 +32,12 @@ list_t *add_node(list_t **head, const char *str)
 	}
 	new_element->str = strdup(str);
 	new_element->len = lenght_string(str);
-	if (new_element == NULL)
+	if (new_element->str == NULL)
 	{
 		free(new_element);
+	}
+	if (new_element == NULL)
+	{
 		new_element->next = NULL;
 	}
 	else
