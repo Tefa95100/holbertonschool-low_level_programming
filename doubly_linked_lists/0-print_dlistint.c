@@ -8,7 +8,7 @@
  */
 size_t print_dlistint(const dlistint_t *h)
 {
-	unsigned int lenght;
+	unsigned long int lenght;
 
 	if (h == NULL)
 	{
