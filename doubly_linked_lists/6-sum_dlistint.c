@@ -2,7 +2,7 @@
 
 /**
  * sum_dlistint - give the sum of int of list
- *@head: pointer of first element
+ *@head: first element
  *Return: return the sum
  */
 int sum_dlistint(dlistint_t *head)
