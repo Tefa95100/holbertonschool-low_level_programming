@@ -8,24 +8,20 @@
  */
 size_t print_list(const list_t *h)
 {
-	int lenght;
+	unsigned long int lenght = 0;
 
-	if (h == NULL)
+	while (h)	/*Browse node*/
 	{
-		return (0);
-	}
-	while (h != NULL)
-	{
-		if (h->str == NULL)
+		if (h->str == NULL)	/*Check if str is NULL else print nil*/
 		{
 			printf("[0] (nil)\n");
 		}
-		else
+		else	/* print lenght string and string*/
 		{
 			printf("[%d] %s\n", h->len, h->str);
 		}
-		++lenght;
-		h = h->next;
+		++lenght;	/*Increment lenght of node*/
+		h = h->next;	/*Go to next node*/
 	}
 	return (lenght);
 }
