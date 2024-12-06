@@ -26,25 +26,25 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new_element = malloc(sizeof(*new_element));
 
-	if (new_element == NULL)
+	if (new_element == NULL)	/*Check if new element is null*/
 	{
 		return (NULL);
 	}
-	new_element->str = strdup(str);
-	new_element->len = lenght_string(str);
-	if (new_element->str == NULL)
+	if (str == NULL)
 	{
 		free(new_element);
+		return (NULL);
 	}
-	if (new_element == NULL)
+	new_element->str = strdup(str);	/*Duplicate string*/
+	if (new_element->str == NULL)	/*Check if string is duplicate*/
 	{
-		new_element->next = NULL;
+		free(new_element);
+		return (NULL);
 	}
-	else
-	{
-		new_element->next = *head;
-		*head = new_element;
-	}
+	/*Parametre th struct*/
+	new_element->len = lenght_string(str);
+	new_element->next = *head;
+	*head = new_element;
 
 	return (new_element);
 }
