@@ -8,13 +8,13 @@
  */
 size_t list_len(const list_t *h)
 {
-	int lenght;
+	int lenght = 0;
 
-	if (h == NULL)
+	if (h == NULL)	/*Check if h is null*/
 	{
 		return (0);
 	}
-	while (h != NULL)
+	while (h != NULL)	/*Browse list and count number of element*/
 	{
 		++lenght;
 		h = h->next;
