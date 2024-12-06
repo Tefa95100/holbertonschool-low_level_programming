@@ -28,10 +28,15 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	temp = *h;
 
 	/*Browse the list and search node by index*/
-	while (temp->next != NULL && index_incrementation != idx)
+	while (temp && index_incrementation != idx)
 	{
 		index_incrementation++;
 		temp = temp->next;
+	}
+	if (temp == NULL)
+	{
+		free(new_element);
+		return (NULL);
 	}
 	/*Attribute and change variable for insertion of new_element*/
 	new_element->n = n;
