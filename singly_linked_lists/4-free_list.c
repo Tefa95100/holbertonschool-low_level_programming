@@ -10,12 +10,13 @@ void free_list(list_t *head)
 
 	if (head)
 	{
-		while (head->next != NULL)	/*Browse list while head is not NULL*/
+		while (head)	/*Browse list while head is not NULL*/
 		{
 			temp = head->next;
+			free(head->str);	/*free string in struct*/
 			free(head);	/* free head before*/
 			head = temp;
 		}
-		free(temp);
+		free(head);
 	}
 }
