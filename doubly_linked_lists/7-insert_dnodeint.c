@@ -13,13 +13,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *temp = NULL;
 	dlistint_t *new_element = malloc(sizeof(*new_element));
 
-	/*Check if allocate is fail*/
-	if (new_element == NULL)
+	if (new_element == NULL)	/*Check if allocate is fail*/
 		return (NULL);
 
 	new_element->n = n;	/*Add n in new element*/
-	/*if the new node is the first element h point newt_element*/
-	if (idx == 0)
+	if (idx == 0)	/*if new_node is the first element h point newt_element*/
 	{
 		if (*h == NULL)	/*If h is NULL*/
 			new_element->next = NULL;
@@ -39,13 +37,16 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		index_incrementation++;
 		temp = temp->next;
 	}
-	if (temp != NULL)	/*Attribute variable for insertion of new_element*/
+	if (temp == NULL)	/*Check if list < index*/
 	{
-		new_element->next = temp;
-		new_element->prev = temp->prev;
-		temp->prev = new_element;
-		temp = new_element->prev;
-		temp->next = new_element;
+		free(new_element);
+		return (NULL);
 	}
+	/*Attribute variable for insertion of new_element*/
+	new_element->next = temp;
+	new_element->prev = temp->prev;
+	temp->prev = new_element;
+	temp = new_element->prev;
+	temp->next = new_element;
 	return (new_element);
 }
