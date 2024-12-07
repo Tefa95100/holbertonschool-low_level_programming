@@ -10,13 +10,13 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *temp = *head;
 	dlistint_t *transfert = NULL;
-	unsigned int index_incrementation;
+	unsigned int index_incrementation = 0;
 
 	if (*head == NULL)	/*Check if head is null*/
 	{
 		return (-1);
 	}
-	if (index == 0)	/*Check if index is  for attribute head to next node*/
+	if (index == 0)	/*Check if index is for attribute head to next node*/
 	{
 		*head = temp->next;
 	}
@@ -25,6 +25,11 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	{
 		index_incrementation++;
 		temp = temp->next;
+	}
+	/*Check if index is not too long*/
+	if (index_incrementation != index)
+	{
+		return (-1);
 	}
 	/*Check if previous is NUll else change pointer of previous*/
 	if (temp->prev != NULL)
@@ -39,12 +44,5 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		transfert->prev = temp->prev;
 	}
 	free(temp);
-	if (temp == NULL)
-	{
 		return (1);
-	}
-	else
-	{
-		return (-1);
-	}
 }
