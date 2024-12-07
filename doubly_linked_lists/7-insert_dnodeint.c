@@ -15,42 +15,37 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	/*Check if allocate is fail*/
 	if (new_element == NULL)
-	{
 		return (NULL);
-	}
-	/*Check if h is NULL*/
-	if (*h == NULL)
+
+	new_element->n = n;	/*Add n in new element*/
+	/*if the new node is the first element h point newt_element*/
+	if (idx == 0)
 	{
-		/*if the new node is the first element h point newt_element*/
-		if (idx == 0)
-		{
-			new_element->n = n;
+		if (*h == NULL)	/*If h is NULL*/
 			new_element->next = NULL;
-			new_element->prev = NULL;
-			*h = new_element;
-			return (new_element);
-		}
+
+		*h = new_element;
+		new_element->prev = NULL;
+		return (new_element);
+	}
+	if (*h == NULL)	/*Check if h null and idx > 0*/
+	{
 		free(new_element);
 		return (NULL);
 	}
 	temp = *h;
-	/*Browse the list and search node by index*/
-	while (temp && index_incrementation != idx)
+	while (temp && index_incrementation != idx)	/*Search node by index*/
 	{
 		index_incrementation++;
 		temp = temp->next;
 	}
-	if (temp == NULL)
+	if (temp != NULL)	/*Attribute variable for insertion of new_element*/
 	{
-		free(new_element);
-		return (NULL);
+		new_element->next = temp;
+		new_element->prev = temp->prev;
+		temp->prev = new_element;
+		temp = new_element->prev;
+		temp->next = new_element;
 	}
-	/*Attribute and change variable for insertion of new_element*/
-	new_element->n = n;
-	new_element->next = temp;
-	new_element->prev = temp->prev;
-	temp->prev = new_element;
-	temp = new_element->prev;
-	temp->next = new_element;
 	return (new_element);
 }
