@@ -10,6 +10,11 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
 	unsigned int index_increment = 0;
 
+	/*Check if head is not NULL*/
+	if (head == NULL)
+	{
+		return (NULL);
+	}
 	/*Browse the list and search the node*/
 	while (head->next != NULL && index_increment != index)
 	{
