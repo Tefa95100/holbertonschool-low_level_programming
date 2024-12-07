@@ -12,11 +12,13 @@ void free_dlistint(dlistint_t *head)
 	{
 		return;
 	}
+	/*Browse list and free before pass to next node*/
 	while (head->next != NULL)
 	{
 		temp = head->next;
 		free(head);
 		head = temp;
 	}
+	/*free the last node*/
 	free(head);
 }
