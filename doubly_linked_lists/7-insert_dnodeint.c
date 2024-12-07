@@ -16,7 +16,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (new_element == NULL)	/*Check if allocate is fail*/
 		return (NULL);
 	new_element->n = n;	/*Add n in new element*/
-	if (idx == 0)	/*if new_node is the first element h point newt_element*/
+	if (idx == 0)	/*Add node at begin*/
 	{
 		new_element = add_dnodeint(h, n);
 		if (new_element == NULL)
@@ -26,17 +26,18 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (new_element);
 	}
 	temp = *h;
-	while (temp->next && index_incrementation != idx)	/*Search node by index*/
+	while (temp && index_incrementation != idx)	/*Search node by index*/
 	{
 		index_incrementation++;
 		temp = temp->next;
 	}
-	if (temp == NULL)	/*Check if list < index*/
+	/*Check if index is invalid*/
+	if (index_incrementation != idx)
 	{
 		free(new_element);
 		return (NULL);
 	}
-	if (temp->next == NULL)
+	if (temp == NULL)	/*Add node at end*/
 	{
 		new_element = add_dnodeint_end(h, n);
 		return (new_element);
