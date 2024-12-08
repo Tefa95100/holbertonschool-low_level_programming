@@ -16,6 +16,26 @@ void close_file(int file_descriptor)
 	}
 }
 /**
+ * error_99 - function for message if error 99
+ *@file_descriptor: the file descriptor
+ *@filename: path of file
+ */
+void error_99(int file_descriptor, char filename)
+{
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+	exit(99);
+}
+/**
+ * error_98 - function for message if error 98
+ *@file_descriptor: the file descriptor
+ *@filename: path of file
+ */
+void error_98(int file_descriptor, char filename)
+{
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+	exit(98);
+}
+/**
  * main - Entry point
  *@argc: number of argument
  *@argv: array of argument
@@ -28,38 +48,32 @@ int main(int argc, char *argv[])
 	char buffer_copy[1024];
 	ssize_t bytes_read = 0, bytes_write = 0;
 
+	/*Check if is a good number of argument*/
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	/*Retrieve name of file*/
 	file_from = argv[1];
 	file_to = argv[2];
+	/*Open file_from and check if success*/
 	file_from_descriptor = open(file_from, O_RDONLY);
 	if (file_from_descriptor == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
+		error_98(file_from_descriptor, file_from);
+	/*Open file_to and check if success*/
 	file_to_descriptor = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to_descriptor == -1)
-	{
-		close(file_from_descriptor);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
+		error_99(file_to_descriptor, file_to);
+	/*Read and take the number of bytes writes and check if success*/
 	bytes_read = read(file_from_descriptor, buffer_copy, sizeof(buffer_copy));
 	if (bytes_read == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(100);
-	}
+		error_98(file_from_descriptor, file_from);
+	/*Write and take the number of bytes writes and compare with the number read*/
 	bytes_write = write(file_to_descriptor, buffer_copy, bytes_read);
 	if (bytes_write != bytes_read)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
+		error_99(file_to_descriptor, file_to);
+	/*Close all file open*/
 	close_file(file_from_descriptor);
 	close_file(file_to_descriptor);
 	return (0);
