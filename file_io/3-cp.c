@@ -20,7 +20,7 @@ void close_file(int file_descriptor)
  *@file_descriptor: the file descriptor
  *@filename: path of file
  */
-void error_99(int file_descriptor, char filename)
+void error_99(char *filename)
 {
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 	exit(99);
@@ -30,7 +30,7 @@ void error_99(int file_descriptor, char filename)
  *@file_descriptor: the file descriptor
  *@filename: path of file
  */
-void error_98(int file_descriptor, char filename)
+void error_98(char *filename)
 {
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 	exit(98);
@@ -60,19 +60,19 @@ int main(int argc, char *argv[])
 	/*Open file_from and check if success*/
 	file_from_descriptor = open(file_from, O_RDONLY);
 	if (file_from_descriptor == -1)
-		error_98(file_from_descriptor, file_from);
+		error_98(file_from);
 	/*Open file_to and check if success*/
 	file_to_descriptor = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to_descriptor == -1)
-		error_99(file_to_descriptor, file_to);
+		error_99(file_to);
 	/*Read and take the number of bytes writes and check if success*/
 	bytes_read = read(file_from_descriptor, buffer_copy, sizeof(buffer_copy));
 	if (bytes_read == -1)
-		error_98(file_from_descriptor, file_from);
+		error_98(file_from);
 	/*Write and take the number of bytes writes and compare with the number read*/
 	bytes_write = write(file_to_descriptor, buffer_copy, bytes_read);
 	if (bytes_write != bytes_read)
-		error_99(file_to_descriptor, file_to);
+		error_99(file_to);
 	/*Close all file open*/
 	close_file(file_from_descriptor);
 	close_file(file_to_descriptor);
