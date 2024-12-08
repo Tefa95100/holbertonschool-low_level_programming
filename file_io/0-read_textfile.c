@@ -29,10 +29,17 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (buffer == NULL)
 	{
 		close(file_descriptor);
+		free(buffer);
 		return (0);
 	}
-	/*Read file and stock number of letters read*/
+	/*Read file, check if fail and stock number of letters read*/
 	number_read = read(file_descriptor, buffer, letters);
+	if (number_read == -1)
+	{
+		close(file_descriptor);
+		free(buffer);
+		return (0);
+	}
 	/*Write the bufffer and stock number of letter write*/
 	number_write = write(1, buffer, letters);
 	close(file_descriptor);	/*Close the file*/
