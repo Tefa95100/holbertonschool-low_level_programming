@@ -42,8 +42,8 @@ void error_98(char *filename)
 int main(int argc, char *argv[])
 {
 	char *file_from = NULL, *file_to = NULL;
-	int file_from_descriptor = 0, file_to_descriptor = 0;
-	char buffer_copy[1024];
+	int file_from_desc = 0, file_to_desc = 0;
+	char buf_cpy[1024];
 	ssize_t bytes_read = 0, bytes_write = 0;
 
 	/*Check if is a good number of argument*/
@@ -58,27 +58,27 @@ int main(int argc, char *argv[])
 	file_to = argv[2];
 
 	/*Open file_from and check if success*/
-	file_from_descriptor = open(file_from, O_RDONLY);
-	if (file_from_descriptor == -1)
+	file_from_desc = open(file_from, O_RDONLY);
+	if (file_from_desc == -1)
 		error_98(file_from);
 
 	/*Open file_to and check if success*/
-	file_to_descriptor = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (file_to_descriptor == -1)
+	file_to_desc = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (file_to_desc == -1)
 		error_99(file_to);
 
-	/*Read and take the number of bytes writes and check if success*/
-	bytes_read = read(file_from_descriptor, buffer_copy, sizeof(buffer_copy));
-	if (bytes_read == -1)
-		error_98(file_from);
-
-	/*Write and take the number of bytes writes and compare with the number read*/
-	bytes_write = write(file_to_descriptor, buffer_copy, bytes_read);
-	if (bytes_write != bytes_read)
-		error_99(file_to);
-
+	/*Read with a loop and take the number of bytes writes and check if success*/
+	while ((bytes_read = read(file_from_desc, buf_cpy, sizeof(buf_cpy))) > 0)
+	{
+		if (bytes_read == -1)
+			error_98(file_from);
+		/*Write and take the number of bytes write and compare with the number read*/
+		bytes_write = write(file_to_desc, buf_cpy, bytes_read);
+		if (bytes_write != bytes_read)
+			error_99(file_to);
+	}
 	/*Close all file open*/
-	close_file(file_from_descriptor);
-	close_file(file_to_descriptor);
+	close_file(file_from_desc);
+	close_file(file_to_desc);
 	return (0);
 }
